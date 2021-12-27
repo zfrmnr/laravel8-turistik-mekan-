@@ -28,15 +28,15 @@
                             </div>
                             <div class="form-group">
                                 <label >Title</label>
-                                <input type="text" name="title" class="form-control"  placeholder="title">
+                                <input type="text" name="title" class="form-control">
                             </div>
                                 <div class="form-group">
                                     <label >Keywords</label>
-                                    <input type="text" name="keywords" class="form-control" placeholder="title">
+                                    <input type="text" name="keywords" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label >Description</label>
-                                    <input type="text" name="description" class="form-control" placeholder="title">
+                                    <input type="text" name="description" class="form-control">
                                 </div>
                                  <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Status</label>

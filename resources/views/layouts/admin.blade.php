@@ -19,7 +19,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="{{asset('assets')}}/admin/css/vertical-layout-light/style.css">
     <!-- endinject -->
-    <link rel="shortcut icon" href="{{asset('assets')}}/admin/images/favicon.png" />
+
 
     @yield('css')
     @yield('javascript')

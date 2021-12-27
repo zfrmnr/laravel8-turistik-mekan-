@@ -47,8 +47,30 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('category/delete/{id}', [\App\Http\Controllers\Admin\CategoryController::class, 'destroy'])->name('admin_category_delete');
     Route::get('category/show', [\App\Http\Controllers\Admin\CategoryController::class, 'show'])->name('admin_category_show');
 
+    #Place
+    Route::prefix('place')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Admin\PlaceController::class, 'index'])->name('admin_places');
+        Route::get('create', [\App\Http\Controllers\Admin\PlaceController::class, 'create'])->name('admin_place_add');
+        Route::post('store', [\App\Http\Controllers\Admin\PlaceController::class, 'store'])->name('admin_place_store');
+        Route::post('update/{id}', [\App\Http\Controllers\Admin\PlaceController::class, 'update'])->name('admin_place_update');
+        Route::get('edit/{id}', [\App\Http\Controllers\Admin\PlaceController::class, 'edit'])->name('admin_place_edit');
+        Route::get('delete/{id}', [\App\Http\Controllers\Admin\PlaceController::class, 'destroy'])->name('admin_place_delete');
+        Route::get('show', [\App\Http\Controllers\Admin\PlaceController::class, 'show'])->name('admin_place_show');
 
+    });
 
+    #Place Image Gallery
+    Route::prefix('image')->group(function () {
+        Route::get('create/{place_id}', [\App\Http\Controllers\Admin\ImageController::class, 'create'])->name('admin_image_add');
+        Route::post('store/{place_id}', [\App\Http\Controllers\Admin\ImageController::class, 'store'])->name('admin_image_store');
+        Route::get('delete/{id}/{place_id}', [\App\Http\Controllers\Admin\ImageController::class, 'destroy'])->name('admin_image_delete');
+        Route::get('show', [\App\Http\Controllers\Admin\ImageController::class, 'show'])->name('admin_image_show');
+
+    });
+
+    #Setting
+    Route::get('setting', [\App\Http\Controllers\Admin\SettingController::class, 'index'])->name('admin_setting');
+    Route::post('setting/update', [\App\Http\Controllers\Admin\SettingController::class, 'update'])->name('admin_setting_update');
 
 });
 
