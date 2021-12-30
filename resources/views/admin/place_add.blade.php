@@ -32,7 +32,7 @@
                                 <label >Parent</label>
                                 <select class="form-control" name="category_id">
                                     @foreach($datalist as $rs)
-                                    <option value="{{$rs->id}}">{{$rs->title}}</option>
+                                    <option value="{{$rs->id}}">{{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs,$rs->title)}}</option>
                                     @endforeach
 
                                 </select>
@@ -89,16 +89,15 @@
                                     </select>
                                 </div>
                         </div>
-
-
+                                
                                 <button type="submit" class="btn btn-primary mr-2">Add Place</button>
 
-                        </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+
 
 
 

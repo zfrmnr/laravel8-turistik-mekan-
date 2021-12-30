@@ -18,9 +18,10 @@
                             <div class="form-group">
                                 <label >Parent</label>
                                 <select class="form-control" name="parent_id">
-                                    <option value="0">main category</option>
+                                    <option value="0">Main category</option>
                                     @foreach($datalist as $rs)
-                                    <option value="{{$rs->id}}" @if ($rs->id ==$data->parent_id) selected="selected" @endif>{{$rs->title}}</option>
+                                    <option value="{{$rs->id}}" @if ($rs->id ==$data->parent_id) selected="selected" @endif>
+                                        {{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs,$rs->title)}}</option>
                                     @endforeach
 
                                 </select>
@@ -52,7 +53,6 @@
 
                                 <button type="submit" class="btn btn-primary mr-2">Add Category</button>
 
-                        </div>
                         </form>
                     </div>
                 </div>

@@ -1,14 +1,19 @@
 <!-- Top bar Start -->
+
+@php
+$setting= \App\Http\Controllers\HomeController::getsetting()
+@endphp
+
 <div class="top-bar">
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-6">
                 <i class="fa fa-envelope"></i>
-                support@email.com
+                {{$setting->email}}
             </div>
             <div class="col-sm-6">
                 <i class="fa fa-phone-alt"></i>
-                +012-345-6789
+                {{$setting->phone}}
             </div>
         </div>
     </div>
@@ -26,7 +31,7 @@
 
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav mr-auto">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="{{route('home')}}" class="nav-item nav-link active">Home</a>
                     <a href="product-list.html" class="nav-item nav-link">Products</a>
                     <a href="product-detail.html" class="nav-item nav-link">Product Detail</a>
                     <a href="cart.html" class="nav-item nav-link">Cart</a>
@@ -62,8 +67,8 @@
         <div class="row align-items-center">
             <div class="col-md-3">
                 <div class="logo">
-                    <a href="index.html">
-                        <img src="{{asset('assets')}}/img/logo.png" alt="Logo">
+                    <a href="{{route('home')}}">
+                        <img src="{{asset('assets')}}/img/logo2.jpg" alt="Logo">
                     </a>
                 </div>
             </div>
