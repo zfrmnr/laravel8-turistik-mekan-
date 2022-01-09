@@ -1,13 +1,14 @@
 @foreach($children as $subcategory)
-    <ul class="list-links">
+
         @if(count($subcategory->children))
-            <li style="color: #1000AF; font-family: 'Arial Black'"> {{$subcategory->title}}</li>
-            <ul class="list-links">
+
+            <li ><a href="#" class="col-md-4">{{$subcategory->title}}</a> </li>
+
                 @include('home.categorytree',['children'=>$subcategory->children])
-            </ul>
-            <hr>
+
+
         @else
-            <li><a href="#">{{$subcategory->title}}</a> </li>
+            <li><a href="#" class="col-md-4">{{$subcategory->title}}</a> </li>
             @endif
-    </ul>
+
 @endforeach

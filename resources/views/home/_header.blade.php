@@ -34,24 +34,29 @@ $setting= \App\Http\Controllers\HomeController::getsetting()
                     <a href="{{route('home')}}" class="nav-item nav-link active">Home</a>
                     <a href="product-list.html" class="nav-item nav-link">Products</a>
                     <a href="product-detail.html" class="nav-item nav-link">Product Detail</a>
-                    <a href="cart.html" class="nav-item nav-link">Cart</a>
-                    <a href="checkout.html" class="nav-item nav-link">Checkout</a>
-                    <a href="my-account.html" class="nav-item nav-link">My Account</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">More Pages</a>
-                        <div class="dropdown-menu">
-                            <a href="wishlist.html" class="dropdown-item">Wishlist</a>
-                            <a href="login.html" class="dropdown-item">Login & Register</a>
-                            <a href="contact.html" class="dropdown-item">Contact Us</a>
-                        </div>
-                    </div>
+                    <a href="{{route('references')}}" class="nav-item nav-link">REFERENCES</a>
+                    <a href="{{route('faq')}}" class="nav-item nav-link">FAQ</a>
+                    <a href="{{route('contact')}}" class="nav-item nav-link">CONTACT</a>
+
+
                 </div>
+
                 <div class="navbar-nav ml-auto">
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Account</a>
+                        @auth
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{Auth::user()->name}}</a>
+                            <div class="dropdown-menu">
+                                <a href="{{route('myprofile')}}" class="dropdown-item">Myaccount</a>
+                            <a href="{{route('logout')}}" class="dropdown-item">Logout</a>
+                            </div>
+                        @endauth
+                        @guest
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User</a>
                         <div class="dropdown-menu">
-                            <a href="#" class="dropdown-item">Login</a>
-                            <a href="#" class="dropdown-item">Register</a>
+                            <a href="/login" class="dropdown-item">Login</a>
+                            <a href="/register" class="dropdown-item">Register</a>
+                            <a href="{{route('logout')}}" class="dropdown-item">Logout</a>
+                            @endguest
                         </div>
                     </div>
                 </div>

@@ -22,17 +22,18 @@
 
     <!-- Template Stylesheet -->
     <link href="{{asset('assets')}}/css/style.css" rel="stylesheet">
-
+    @yield('css')
+    @yield('javascript')
 </head>
 
 <body>
 
 @include('home._header')
-@include('home._category')
-@include('home._slider')
+
 @section('content')
 
-    @show
+@show
+
 @include('home._footer')
 
 </body>

@@ -80,7 +80,7 @@
                             <i class="ti-settings text-primary"></i>
                             Settings
                         </a>
-                        <a href="{{route('admin_logout')}}" class="dropdown-item">
+                        <a href="{{route('logout')}}" class="dropdown-item">
                             <i class="ti-power-off text-primary"></i>
                             Logout
                         </a>

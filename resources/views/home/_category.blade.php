@@ -13,19 +13,23 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="true" >
+                            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" >
                                 <i class="icon-layout menu-icon"></i>
                                 <span class="menu-title"><i class="fa fa-category"></i>Kategoriler</span>
                                 <ul class="category-list">
                                 @foreach($parentCategories as $rs)
+                                </ul>
                             </a>
                             <div class="collapse" id="ui-basic">
-                                <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item"> <a class="nav-link">{{$rs->title}}</a>
+                                <ul>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">{{$rs->title}}</a>
                                         <div class="custom-menu">
                                             <div class="row">
                                                 @if(count($rs->children))
+                                                    <ul class="list-links">
                                                     @include('home.categorytree',['children'=>$rs->children])
+                                                    </ul>
                                                 @endif
                                             </div>
                                         </div>
@@ -35,7 +39,7 @@
                                 </ul>
                             </div>
                         </li>
-                    </ul>
+
 
                         <li class="nav-item">
                             <a class="nav-link" href="#"><i class="fa fa-plus-square"></i>New Arrivals</a>

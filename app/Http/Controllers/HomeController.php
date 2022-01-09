@@ -26,9 +26,30 @@ class HomeController extends Controller
         return view('home.index',['setting'=>$setting]);
     }
 
+
+
+
+
     public function aboutus(){
         return view('home.about');
     }
+
+    public function references(){
+        return view('home.about');
+    }
+
+    public function faq(){
+        return view('home.about');
+    }
+
+
+    public function contact(){
+        return view('home.about');
+    }
+
+
+
+
 
     public function login(){
         return view('admin.login');

@@ -9,7 +9,8 @@
 @section('keywords',$setting->keywords)
 
 @section('content')
-    <!-- Brand Start -->
+    @include('home._category')
+    @include('home._slider')
     <div class="brand">
         <div class="container-fluid">
             <div class="brand-slider">
@@ -530,4 +531,6 @@
         </div>
     </div>
     <!-- Review End -->
+
+
 @endsection
