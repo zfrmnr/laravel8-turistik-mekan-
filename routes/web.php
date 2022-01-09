@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,7 @@ Route::get('/aboutus',[HomeController::class, 'aboutus'])->name('aboutus');
 Route::get('/faq',[HomeController::class, 'faq'])->name('faq');
 Route::get('/contact',[HomeController::class, 'contact'])->name('contact');
 Route::get('/references',[HomeController::class, 'references'])->name('references');
+Route::post('/sendmessage',[HomeController::class, 'sendmessage'])->name('sendmessage');
 
 
 
@@ -63,6 +65,19 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::get('show', [\App\Http\Controllers\Admin\PlaceController::class, 'show'])->name('admin_place_show');
 
     });
+
+
+    #Place
+    Route::prefix('message')->group(function () {
+        Route::get('/', [MessageController::class, 'index'])->name('admin_message');
+        Route::post('update/{id}', [MessageController::class, 'update'])->name('admin_message_update');
+        Route::get('edit/{id}', [MessageController::class, 'edit'])->name('admin_message_edit');
+        Route::get('delete/{id}', [MessageController::class, 'destroy'])->name('admin_message_delete');
+        Route::get('show', [MessageController::class, 'show'])->name('admin_message_show');
+
+    });
+
+
 
     #Place Image Gallery
     Route::prefix('image')->group(function () {

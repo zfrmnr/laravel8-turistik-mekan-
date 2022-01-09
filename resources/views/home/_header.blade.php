@@ -33,7 +33,7 @@ $setting= \App\Http\Controllers\HomeController::getsetting()
                 <div class="navbar-nav mr-auto">
                     <a href="{{route('home')}}" class="nav-item nav-link active">Home</a>
                     <a href="product-list.html" class="nav-item nav-link">Products</a>
-                    <a href="product-detail.html" class="nav-item nav-link">Product Detail</a>
+                    <a href="{{route('aboutus')}}" class="nav-item nav-link">AboutUs</a>
                     <a href="{{route('references')}}" class="nav-item nav-link">REFERENCES</a>
                     <a href="{{route('faq')}}" class="nav-item nav-link">FAQ</a>
                     <a href="{{route('contact')}}" class="nav-item nav-link">CONTACT</a>

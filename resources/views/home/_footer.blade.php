@@ -35,7 +35,7 @@
                 <div class="footer-widget">
                     <h2>Company Info</h2>
                     <ul>
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="{{route('aboutus')}}">About Us</a></li>
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Terms & Condition</a></li>
                     </ul>
