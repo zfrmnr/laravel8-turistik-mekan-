@@ -44,7 +44,13 @@ class HomeController extends Controller
         $data =Place::find($id);
 
     }
+    public function categoryplaces($id){
+        $datalist =Place::where('category_id',$id)->get();
+        $data =Category::find($id);
+        return view('home.category_places',['data'=>$data,'datalist'=>$datalist]);
 
+
+    }
 
 
     public function aboutus(){
