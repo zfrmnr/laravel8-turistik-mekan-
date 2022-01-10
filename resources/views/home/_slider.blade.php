@@ -2,27 +2,16 @@
 
             <div class="col-md-6">
                 <div class="header-slider normal-slider">
+                    @foreach($slider as $rs)
                     <div class="header-slider-item">
-                        <img src="{{asset('assets')}}/img/slider-1.jpg" alt="Slider Image" />
+                        <img src="{{Storage::url($rs->image)}}"style="height: 400px;weight:300px" alt="Slider Image" />
                         <div class="header-slider-caption">
-                            <p>Some text goes here that describes the image</p>
-                            <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Shop Now</a>
+                            <p>{{$rs->title}}</p>
+                            <a class="btn" href="{{route('place',['id'=>$rs->id])}}"><i class="fa fa-shopping-cart"></i>Show Now</a>
                         </div>
                     </div>
-                    <div class="header-slider-item">
-                        <img src="{{asset('assets')}}/img/slider-2.jpg" alt="Slider Image" />
-                        <div class="header-slider-caption">
-                            <p>Some text goes here that describes the image</p>
-                            <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Shop Now</a>
-                        </div>
-                    </div>
-                    <div class="header-slider-item">
-                        <img src="{{asset('assets')}}/img/slider-3.jpg" alt="Slider Image" />
-                        <div class="header-slider-caption">
-                            <p>Some text goes here that describes the image</p>
-                            <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Shop Now</a>
-                        </div>
-                    </div>
+                    @endforeach
+
                 </div>
             </div>
             <div class="col-md-3">

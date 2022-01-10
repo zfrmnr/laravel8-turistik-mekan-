@@ -26,10 +26,24 @@ class HomeController extends Controller
     public function index()
     {
         $setting =Setting::first();
-        return view('home.index',['setting'=>$setting]);
+        $slider =Place::select('id','title','image','country')->limit(4)->get();
+
+        $data = [
+          'setting'=>$setting,
+          'slider'=>$slider,
+            'page'=>'home'
+
+        ];
+
+
+        return view('home.index',$data);
     }
 
 
+    public function place($id){
+        $data =Place::find($id);
+
+    }
 
 
 
