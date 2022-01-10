@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Image;
 use App\Models\Message;
 use App\Models\Place;
 use App\Models\Setting;
@@ -26,11 +27,17 @@ class HomeController extends Controller
     public function index()
     {
         $setting =Setting::first();
-        $slider =Place::select('id','title','image','country')->limit(4)->get();
+        $slider =Place::select('id','title','image','city')->limit(4)->get();
+        $popular =Place::select('id','title','image','city')->limit(4)->inRandomOrder()->get();
+        $mostlike =Place::select('id','title','image','city')->limit(4)->orderByDesc('id')->get();
+        $mustseem =Place::select('id','title','image','city')->limit(4)->inRandomOrder()->get();
 
         $data = [
           'setting'=>$setting,
           'slider'=>$slider,
+            'popular'=>$popular,
+            'mostlike'=>$mostlike,
+            'mustseem'=>$mustseem,
             'page'=>'home'
 
         ];
@@ -42,8 +49,39 @@ class HomeController extends Controller
 
     public function place($id){
         $data =Place::find($id);
+        $datalist =Image::where('place_id',$id)->get();
+        return view('home.places_detail',['data'=>$data,'datalist'=>$datalist]);
+    }
+
+
+    public function getplace(Request  $request)
+    {
+        $search=$request->input('search');
+
+        $count=$data =Place::where('title','like','%'.$search.'%')->get()->count();
+        if ($count==1){
+            $data =Place::where('title', 'like','%'.$search.'%')->first();
+            return redirect()->route('place',['id'=>$data->id]);
+        }
+        else{
+            return redirect()->route('placelist',['search'=>$search]);
+        }
+
 
     }
+
+    public function placelist($search)
+    {
+            $datalist =Place::where('title', 'like','%'.$search.'%')->get();
+        return view('home.search_places',['search'=>$search,'datalist'=>$datalist]);
+
+    }
+
+
+    public function addtofav($id){
+        $data =Place::find($id);
+    }
+
     public function categoryplaces($id){
         $datalist =Place::where('category_id',$id)->get();
         $data =Category::find($id);

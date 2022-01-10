@@ -39,6 +39,9 @@ Route::get('/references',[HomeController::class, 'references'])->name('reference
 Route::post('/sendmessage',[HomeController::class, 'sendmessage'])->name('sendmessage');
 Route::get('/place/{id}',[HomeController::class, 'place'])->name('place');
 Route::get('/categoryplaces/{id}',[HomeController::class, 'categoryplaces'])->name('categoryplaces');
+Route::get('/addtofav/{id}',[HomeController::class, 'addtofav'])->name('addtofav');
+Route::post('/getplace',[HomeController::class, 'getplace'])->name('getplace');
+Route::get('/placelist/{search}',[HomeController::class, 'placelist'])->name('placelist');
 
 
 

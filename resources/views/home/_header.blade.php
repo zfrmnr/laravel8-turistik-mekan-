@@ -79,8 +79,12 @@ $setting= \App\Http\Controllers\HomeController::getsetting()
             </div>
             <div class="col-md-6">
                 <div class="search">
-                    <input type="text" placeholder="Search">
-                    <button><i class="fa fa-search"></i></button>
+                    <form action="{{route('getplace')}}" method="post">
+                        @csrf
+                        @livewire('search')
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                    @livewireScripts
                 </div>
             </div>
             <div class="col-md-3">
