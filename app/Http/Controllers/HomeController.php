@@ -6,10 +6,12 @@ use App\Models\Category;
 use App\Models\Image;
 use App\Models\Message;
 use App\Models\Place;
+use App\Models\Review;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use phpDocumentor\Reflection\Types\Context;
 
 class HomeController extends Controller
 {
@@ -22,6 +24,14 @@ class HomeController extends Controller
     public static function getsetting()
     {
         return Setting::first();
+    }
+    public static function countreview($id)
+    {
+        return Review::where('place_id', $id)->count();
+    }
+    public static function avrgreview($id)
+    {
+        return Review::where('place_id', $id)->average('rate');
     }
 
     public function index()
@@ -49,8 +59,9 @@ class HomeController extends Controller
 
     public function place($id){
         $data =Place::find($id);
-        $datalist =Image::where('place_id',$id)->get();
-        return view('home.places_detail',['data'=>$data,'datalist'=>$datalist]);
+        $datalist = Image::where('place_id',$id)->get();
+        $reviews = Review::where('place_id',$id)->get();
+        return view('home.places_detail',['data'=>$data,'datalist'=>$datalist,'reviews'=>$reviews]);
     }
 
 

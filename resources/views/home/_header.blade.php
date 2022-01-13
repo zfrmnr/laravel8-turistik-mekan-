@@ -32,7 +32,6 @@ $setting= \App\Http\Controllers\HomeController::getsetting()
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav mr-auto">
                     <a href="{{route('home')}}" class="nav-item nav-link active">Home</a>
-                    <a href="product-list.html" class="nav-item nav-link">Products</a>
                     <a href="{{route('aboutus')}}" class="nav-item nav-link">AboutUs</a>
                     <a href="{{route('references')}}" class="nav-item nav-link">REFERENCES</a>
                     <a href="{{route('faq')}}" class="nav-item nav-link">FAQ</a>
@@ -84,7 +83,9 @@ $setting= \App\Http\Controllers\HomeController::getsetting()
                         @livewire('search')
                     <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
+                    @section('footerjs')
                     @livewireScripts
+                    @endsection
                 </div>
             </div>
             <div class="col-md-3">

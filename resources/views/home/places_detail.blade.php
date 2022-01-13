@@ -39,15 +39,19 @@
 
                                 </div>
                             </div>
+                            @php
+                                $avgrev=\App\Http\Controllers\HomeController::avrgreview($data->id);
+                                $countreview=\App\Http\Controllers\HomeController::countreview($data->id);
+                            @endphp
                             <div class="col-md-5">
                                 <div class="product-content">
                                     <div class="title"><h2>{{$rs->title}}</h2></div>
                                     <div class="ratting">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star" @if($avgrev<1) -o empty @endif></i>
+                                        <i class="fa fa-star" @if($avgrev<2) -o empty @endif></i>
+                                        <i class="fa fa-star" @if($avgrev<3) -o empty @endif></i>
+                                        <i class="fa fa-star" @if($avgrev<4) -o empty @endif></i>
+                                        <i class="fa fa-star" @if($avgrev<5) -o empty @endif></i>
                                     </div>
                                     <div class="price">
                                         <h4>Country</h4>
@@ -79,7 +83,7 @@
                                     <a class="nav-link" data-toggle="pill" href="#specification">Specification</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-toggle="pill" href="#reviews">Reviews (1)</a>
+                                    <a class="nav-link" data-toggle="pill" href="#reviews">Reviews {{$countreview}}</a>
                                 </li>
                             </ul>
 
@@ -96,56 +100,34 @@
                                         {!! $data->detail !!}
                                     </ul>
                                 </div>
+
                                 <div id="reviews" class="container tab-pane fade">
+                                    @foreach($reviews as $rs)
                                     <div class="reviews-submitted">
-                                        <div class="reviewer">Phasellus Gravida - <span>01 Jan 2020</span></div>
+                                        <div class="reviewer">{{$rs->user->name}} - <span>{{$rs->created_at}}</span></div>
                                         <div class="ratting">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <p>
-                                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
-                                        </p>
-                                    </div>
-                                    <div class="reviews-submit">
-                                        <h4>Give your Review:</h4>
-                                        <div class="ratting">
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                            <i class="far fa-star"></i>
-                                        </div>
-                                        <div class="row form">
-                                            <div class="col-sm-6">
-                                                <input type="text" placeholder="Name">
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <input type="email" placeholder="Email">
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <textarea placeholder="Review"></textarea>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <button>Submit</button>
-                                            </div>
+                                            <i class="fa fa-star" @if($rs->rate<1) -o empty @endif></i>
+                                            <i class="fa fa-star"  @if($rs->rate<2) -o empty @endif ></i>
+                                            <i class="fa fa-star"  @if($rs->rate<3) -o empty @endif></i>
+                                            <i class="fa fa-star"  @if($rs->rate<4) -o empty @endif ></i>
+                                            <i class="fa fa-star"  @if($rs->rate<5) -o empty @endif></i>
+                                            <i>{{$countreview}}</i>
                                         </div>
                                     </div>
+                                        @livewire('review',['id' => $data->id])
+                                    @endforeach
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
 
 
                 <!-- Side Bar End -->
             </div>
         </div>
-    </div>
     <!-- Product Detail End -->
 
 

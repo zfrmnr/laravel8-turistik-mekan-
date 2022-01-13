@@ -45,12 +45,17 @@
                     <div class="product-item">
                         <div class="product-title">
                             <a href="{{route('place',['id'=>$rs->id])}}">{{$rs->title}}</a>
+                            @php
+                                $avgrev=\App\Http\Controllers\HomeController::avrgreview($rs->id);
+                                $countreview=\App\Http\Controllers\HomeController::countreview($rs->id);
+                            @endphp
                             <div class="ratting">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star" @if($rs->rate<1) -o empty @endif></i>
+                                <i class="fa fa-star" @if($rs->rate<2) -o empty @endif></i>
+                                <i class="fa fa-star" @if($rs->rate<3) -o empty @endif></i>
+                                <i class="fa fa-star" @if($rs->rate<4) -o empty @endif></i>
+                                <i class="fa fa-star" @if($rs->rate<5) -o empty @endif></i>
+                                <i>({{$countreview}})</i>
                             </div>
                         </div>
                         <div class="product-image">
@@ -85,12 +90,17 @@
                     <div class="product-item">
                         <div class="product-title">
                             <a href="{{route('place',['id'=>$rs->id])}}">{{$rs->title}}</a>
+                            @php
+                                $avgrev=\App\Http\Controllers\HomeController::avrgreview($rs->id);
+                                $countreview=\App\Http\Controllers\HomeController::countreview($rs->id);
+                            @endphp
                             <div class="ratting">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star" @if($avgrev<1) -o empty @endif></i>
+                                <i class="fa fa-star" @if($avgrev<2) -o empty @endif></i>
+                                <i class="fa fa-star" @if($avgrev<3) -o empty @endif></i>
+                                <i class="fa fa-star" @if($avgrev<4) -o empty @endif></i>
+                                <i class="fa fa-star" @if($avgrev<5) -o empty @endif></i>
+                                <i>({{$countreview}})</i>
                             </div>
                         </div>
                         <div class="product-image">
@@ -126,12 +136,17 @@
                         <div class="review-text">
                             <h2>Customer Name</h2>
                             <h3>Profession</h3>
+                            @php
+                                $avgrev=\App\Http\Controllers\HomeController::avrgreview($rs->id);
+                                $countreview=\App\Http\Controllers\HomeController::countreview($rs->id);
+                            @endphp
                             <div class="ratting">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star" @if($avgrev<1) -o empty @endif></i>
+                                <i class="fa fa-star" @if($avgrev<2) -o empty @endif></i>
+                                <i class="fa fa-star" @if($avgrev<3) -o empty @endif></i>
+                                <i class="fa fa-star" @if($avgrev<4) -o empty @endif></i>
+                                <i class="fa fa-star" @if($avgrev<5) -o empty @endif></i>
+                                <i>({{$countreview}})</i>
                             </div>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae nunc eget leo finibus luctus et vitae lorem
@@ -147,12 +162,17 @@
                         <div class="review-text">
                             <h2>Customer Name</h2>
                             <h3>Profession</h3>
+                            @php
+                                $avgrev=\App\Http\Controllers\HomeController::avrgreview($rs->id);
+                                $countreview=\App\Http\Controllers\HomeController::countreview($rs->id);
+                            @endphp
                             <div class="ratting">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star" @if($avgrev<1) -o empty @endif></i>
+                                <i class="fa fa-star" @if($avgrev<2) -o empty @endif></i>
+                                <i class="fa fa-star" @if($avgrev<3) -o empty @endif></i>
+                                <i class="fa fa-star" @if($avgrev<4) -o empty @endif></i>
+                                <i class="fa fa-star" @if($avgrev<5) -o empty @endif></i>
+                                <i>({{$countreview}})</i>
                             </div>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae nunc eget leo finibus luctus et vitae lorem
@@ -168,12 +188,17 @@
                         <div class="review-text">
                             <h2>Customer Name</h2>
                             <h3>Profession</h3>
+                            @php
+                                $avgrev=\App\Http\Controllers\HomeController::avrgreview($rs->id);
+                                $countreview=\App\Http\Controllers\HomeController::countreview($rs->id);
+                            @endphp
                             <div class="ratting">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star" @if($rs->rate<1) -o empty @endif></i>
+                                <i class="fa fa-star" @if($rs->rate<2) -o empty @endif></i>
+                                <i class="fa fa-star" @if($rs->rate<3) -o empty @endif></i>
+                                <i class="fa fa-star" @if($rs->rate<4) -o empty @endif></i>
+                                <i class="fa fa-star" @if($rs->rate<5) -o empty @endif></i>
+                                <i>({{$countreview}})</i>
                             </div>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vitae nunc eget leo finibus luctus et vitae lorem
