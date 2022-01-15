@@ -43,17 +43,14 @@ class Review extends Component
 
         \App\Models\Review::create([
             'place_id'=>$this->place_id,
-            'user_id'=>Auth::id(),
+            'user_id' => Auth::id(),
             'IP'=>$_SERVER['REMOTE_ADDR'],
             'rate'=>$this->rate,
             'subject'=>$this->subject,
             'review'=>$this->review
         ]);
-        session()->flash('message','Revire Send Successfully.');
+        session()->flash('message','Review Send Successfully.');
         $this->resetInput();
     }
-
-
-
 
 }

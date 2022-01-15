@@ -102,8 +102,8 @@
                                 </div>
 
                                 <div id="reviews" class="container tab-pane fade">
-                                    @foreach($reviews as $rs)
-                                    <div class="reviews-submitted">
+                                    <div class="reviews-submitted" >
+                                        @foreach($reviews as $rs)
                                         <div class="reviewer">{{$rs->user->name}} - <span>{{$rs->created_at}}</span></div>
                                         <div class="ratting">
                                             <i class="fa fa-star" @if($rs->rate<1) -o empty @endif></i>
@@ -113,9 +113,15 @@
                                             <i class="fa fa-star"  @if($rs->rate<5) -o empty @endif></i>
                                             <i>{{$countreview}}</i>
                                         </div>
+                                            <div class="review-body">
+                                                <strong>{{$rs->subject}}</strong>
+                                                <p>{{$rs->review}}</p>
+                                            </div> @endforeach
+
                                     </div>
+
                                         @livewire('review',['id' => $data->id])
-                                    @endforeach
+
                                     </div>
 
                                 </div>

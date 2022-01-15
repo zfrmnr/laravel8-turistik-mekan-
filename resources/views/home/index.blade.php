@@ -4,7 +4,7 @@
 
 @extends('layouts.home')
 
-@section('title', $setting->title)
+@section('title','Z-TRAVEL')
 @section('description'){{ $setting->description }}@endsection
 @section('keywords',$setting->keywords)
 

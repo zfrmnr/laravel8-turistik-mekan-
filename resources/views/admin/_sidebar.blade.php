@@ -36,6 +36,18 @@
                 <span class="menu-title">Contact Message</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a href="{{route('admin_review')}}" class="nav-link" >
+                <i class="icon-grid menu-icon"></i>
+                <span class="menu-title">Reviews</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{route('admin_faq')}}" class="nav-link" >
+                <i class="icon-grid menu-icon"></i>
+                <span class="menu-title">Faq</span>
+            </a>
+        </li>
 
     </ul>
 </nav>

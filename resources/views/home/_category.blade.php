@@ -42,7 +42,7 @@
 
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa fa-plus-square"></i>New Arrivals</a>
+                            <a class="nav-link" href="{{route('user_places')}}"><i class="fa fa-plus-square"></i>add place</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><i class="fa fa-female"></i>Fashion & Beauty</a>

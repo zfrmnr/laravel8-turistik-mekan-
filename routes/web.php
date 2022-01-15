@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin;
@@ -92,16 +93,37 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::get('show', [\App\Http\Controllers\Admin\ImageController::class, 'show'])->name('admin_image_show');
 
     });
+    #review
+    Route::prefix('review')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Admin\ReviewController::class, 'index'])->name('admin_review');
+        Route::post('update/{id}', [\App\Http\Controllers\Admin\ReviewController::class, 'update'])->name('admin_review_update');
+        Route::get('delete/{id}', [\App\Http\Controllers\Admin\ReviewController::class, 'destroy'])->name('admin_review_delete');
+        Route::get('show/{id}', [\App\Http\Controllers\Admin\ReviewController::class, 'show'])->name('admin_review_show');
+    });
 
     #Setting
     Route::get('setting', [\App\Http\Controllers\Admin\SettingController::class, 'index'])->name('admin_setting');
     Route::post('setting/update', [\App\Http\Controllers\Admin\SettingController::class, 'update'])->name('admin_setting_update');
+
+    #Faq
+    Route::prefix('faq')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Admin\FaqController::class, 'index'])->name('admin_faq');
+        Route::get('create', [\App\Http\Controllers\Admin\FaqController::class, 'create'])->name('admin_faq_add');
+        Route::post('store', [\App\Http\Controllers\Admin\FaqController::class, 'store'])->name('admin_faq_store');
+        Route::post('update/{id}', [\App\Http\Controllers\Admin\FaqController::class, 'update'])->name('admin_faq_update');
+        Route::get('edit/{id}', [\App\Http\Controllers\Admin\FaqController::class, 'edit'])->name('admin_faq_edit');
+        Route::get('delete/{id}', [\App\Http\Controllers\Admin\FaqController::class, 'destroy'])->name('admin_faq_delete');
+        Route::get('show', [\App\Http\Controllers\Admin\FaqController::class, 'show'])->name('admin_faq_show');
+
+    });
 
 });
 
 Route::middleware('auth')->prefix('myaccount')->namespace('myaccount')->group(function () {
 
     Route::get('/', [\App\Http\Controllers\UserController::class, 'index'])->name('myprofile');
+    Route::get('/myreviews', [\App\Http\Controllers\UserController::class, 'myreviews'])->name('myreviews');
+    Route::get('/destroymyreview/{id}', [\App\Http\Controllers\UserController::class, 'destroymyreview'])->name('user_review_delete');
 
 });
 
@@ -110,6 +132,25 @@ Route::middleware('auth')->prefix('user')->namespace('user')->group(function () 
 
     Route::get('/profile', [\App\Http\Controllers\UserController::class, 'index'])->name('profile');
 
+    #Place
+    Route::prefix('place')->group(function () {
+        Route::get('/', [PlaceController::class, 'index'])->name('user_places');
+        Route::get('create', [PlaceController::class, 'create'])->name('user_place_add');
+        Route::post('store', [PlaceController::class, 'store'])->name('user_place_store');
+        Route::post('update/{id}', [PlaceController::class, 'update'])->name('user_place_update');
+        Route::get('edit/{id}', [PlaceController::class, 'edit'])->name('user_place_edit');
+        Route::get('delete/{id}', [PlaceController::class, 'destroy'])->name('user_place_delete');
+        Route::get('show', [PlaceController::class, 'show'])->name('user_place_show');
+
+    });
+    #Place Image Gallery
+    Route::prefix('image')->group(function () {
+        Route::get('create/{place_id}', [PlaceController::class, 'create'])->name('user_image_add');
+        Route::post('store/{place_id}', [PlaceController::class, 'store'])->name('user_image_store');
+        Route::get('delete/{id}/{place_id}', [PlaceController::class, 'destroy'])->name('user_image_delete');
+        Route::get('show', [PlaceController::class, 'show'])->name('user_image_show');
+
+});
 });
 
 
