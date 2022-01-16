@@ -45,7 +45,7 @@
                             <a class="nav-link" href="{{route('user_places')}}"><i class="fa fa-plus-square"></i>add place</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa fa-female"></i>Fashion & Beauty</a>
+                            <a class="nav-link" href="{{route('user_favcart')}}"><i class="fa fa-heart"></i>Fav place</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><i class="fa fa-child"></i>Kids & Babies Clothes</a>

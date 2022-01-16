@@ -36,6 +36,7 @@ $setting= \App\Http\Controllers\HomeController::getsetting()
                     <a href="{{route('references')}}" class="nav-item nav-link">REFERENCES</a>
                     <a href="{{route('faq')}}" class="nav-item nav-link">FAQ</a>
                     <a href="{{route('contact')}}" class="nav-item nav-link">CONTACT</a>
+                    @include('home.message')
 
 
                 </div>
@@ -76,7 +77,7 @@ $setting= \App\Http\Controllers\HomeController::getsetting()
                     </a>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <div class="search">
                     <form action="{{route('getplace')}}" method="post">
                         @csrf
@@ -88,16 +89,12 @@ $setting= \App\Http\Controllers\HomeController::getsetting()
                     @endsection
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="user">
-                    <a href="wishlist.html" class="btn wishlist">
+                    <a href="{{route('user_favcart')}}" class="btn wishlist">
                         <i class="fa fa-heart"></i>
-                        <span>(0)</span>
                     </a>
-                    <a href="cart.html" class="btn cart">
-                        <i class="fa fa-shopping-cart"></i>
-                        <span>(0)</span>
-                    </a>
+
                 </div>
             </div>
         </div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\MessageController;
+use App\Http\Controllers\FavcartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\UserController;
@@ -40,7 +41,6 @@ Route::get('/references',[HomeController::class, 'references'])->name('reference
 Route::post('/sendmessage',[HomeController::class, 'sendmessage'])->name('sendmessage');
 Route::get('/place/{id}',[HomeController::class, 'place'])->name('place');
 Route::get('/categoryplaces/{id}',[HomeController::class, 'categoryplaces'])->name('categoryplaces');
-Route::get('/addtofav/{id}',[HomeController::class, 'addtofav'])->name('addtofav');
 Route::post('/getplace',[HomeController::class, 'getplace'])->name('getplace');
 Route::get('/placelist/{search}',[HomeController::class, 'placelist'])->name('placelist');
 
@@ -151,6 +151,15 @@ Route::middleware('auth')->prefix('user')->namespace('user')->group(function () 
         Route::get('show', [PlaceController::class, 'show'])->name('user_image_show');
 
 });
+
+    #Favcart
+    Route::prefix('favcart')->group(function () {
+        Route::get('/', [FavcartController::class, 'index'])->name('user_favcart');
+        Route::post('store/{id}', [FavcartController::class, 'store'])->name('user_favcart_add');
+        Route::post('update/{id}', [FavcartController::class, 'update'])->name('user_favcart_update');
+        Route::get('delete/{id}', [FavcartController::class, 'destroy'])->name('user_favcart_delete');
+
+    });
 });
 
 

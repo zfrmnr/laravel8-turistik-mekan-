@@ -65,9 +65,12 @@
                                         <h4>location</h4>
                                         <p>{{$data->location}}</p>
                                     </div>
+                                    <form action="{{route('user_favcart_add',['id'=>$data->id])}}" method="post">
+                                        @csrf
                                     <div class="action">
-                                        <a class="btn" href="{{route('addtofav',['id'=>$rs->id])}}"><i class="fa fa fa-heart"></i>Add to Fav</a>
+                                        <button class="btn" type="submit"><i class="fa fa fa-heart"></i>Add to Fav</button>
                                     </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
