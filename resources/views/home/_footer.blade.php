@@ -54,24 +54,6 @@
             </div>
         </div>
 
-        <div class="row payment align-items-center">
-            <div class="col-md-6">
-                <div class="payment-method">
-                    <h2>We Accept:</h2>
-                    <img src="{{asset('assets')}}/img/payment-method.png" alt="Payment Method" />
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="payment-security">
-                    <h2>Secured By:</h2>
-                    <img src="{{asset('assets')}}/img/godaddy.svg" alt="Payment Security" />
-                    <img src="{{asset('assets')}}/img/norton.svg" alt="Payment Security" />
-                    <img src="{{asset('assets')}}/img/ssl.svg" alt="Payment Security" />
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <!-- Footer End -->
 
 <!-- Footer Bottom Start -->

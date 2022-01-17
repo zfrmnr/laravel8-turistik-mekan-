@@ -39,11 +39,19 @@ class FavcartController extends Controller
      */
     public function store(Request $request,$id)
     {
-        $data =new Favcart;
-        $data->place_id=$id;
-        $data->user_id= Auth::id();
-        $data->save();
-        return redirect()->back()->with('success','Place Added to Fav Successfuly');
+        $check=Favcart::find($id);
+        if($check==null){
+            return redirect()->back()->with('success','Place already Added to Fav Successfuly');
+
+        }
+        else{
+            $data =new Favcart;
+            $data->place_id=$id;
+            $data->user_id= Auth::id();
+            $data->save();
+            return redirect()->back()->with('success','Place Added to Fav Successfuly');
+        }
+
 
     }
 
@@ -87,8 +95,10 @@ class FavcartController extends Controller
      * @param  \App\Models\Favcart  $favcart
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Favcart $favcart)
+    public function destroy(Favcart $favcart,$id)
     {
-        //
+        $data=Favcart::find($id);
+        $data->delete();
+        return redirect()->back()->with('success','deleted from fav list');
     }
 }

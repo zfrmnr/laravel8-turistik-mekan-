@@ -14,8 +14,7 @@
 
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" >
-                                <i class="icon-layout menu-icon"></i>
-                                <span class="menu-title"><i class="fa fa-category"></i>Kategoriler</span>
+                                <span class="menu-title"><i class="fa fa-map-marker"></i>Kategoriler</span>
                                 <ul class="category-list">
                                 @foreach($parentCategories as $rs)
                                 </ul>
@@ -48,7 +47,7 @@
                             <a class="nav-link" href="{{route('user_favcart')}}"><i class="fa fa-heart"></i>Fav place</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa fa-child"></i>Kids & Babies Clothes</a>
+                            <a class="nav-link" href="{{route('myreviews')}}"><i class="fa fa-child"></i>Myreviews</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><i class="fa fa-tshirt"></i>Men & Women Clothes</a>
@@ -56,9 +55,17 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#"><i class="fa fa-mobile-alt"></i>Gadgets & Accessories</a>
                         </li>
+                        @auth
+                        @php
+                            $userRoles = Auth::user()->roles->pluck('name');
+                        @endphp
+                        @if ($userRoles->contains('admin'))
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa fa-microchip"></i>Electronics & Accessories</a>
+                            <a class="nav-link" href="{{route('admin_home')}}" target="_blank"><i class="fa fa-microchip"></i>admin panel</a>
                         </li>
+                            @endif
+                        @endauth
                     </ul>
                 </nav>
             </div>
+

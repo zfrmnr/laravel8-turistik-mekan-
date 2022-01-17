@@ -50,6 +50,8 @@ Route::get('/placelist/{search}',[HomeController::class, 'placelist'])->name('pl
 //admin
 
 Route::middleware('auth')->prefix('admin')->group(function () {
+    #adminrole
+    Route::middleware('admin')->group(function (){
     Route::get('/', [\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin_home')->middleware('auth');
 
     Route::get('category', [\App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('admin_category');
@@ -116,8 +118,8 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::get('show', [\App\Http\Controllers\Admin\FaqController::class, 'show'])->name('admin_faq_show');
 
     });
-
-});
+}); #admin
+}); #auth
 
 Route::middleware('auth')->prefix('myaccount')->namespace('myaccount')->group(function () {
 

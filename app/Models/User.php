@@ -66,5 +66,9 @@ class User extends Authenticatable
     public function favcart(){
         return $this->hasMany(Favcart::class);
     }
+    public function roles(){
+        return $this->belongsToMany(Role::class);
+    }
+
 
 }

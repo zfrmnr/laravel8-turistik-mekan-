@@ -47,7 +47,8 @@
                                             <p></p>
                                             <tr class="table-info">
                                                 <td>{{$rs->id}}</td>
-                                                <td>{{$rs->place->title}}</td>
+                                                <td><a href="{{route('place',['id'=>$rs->place->id])}}">
+                                                        {{$rs->place->title}}</a></td>
                                                 <td>{{$rs->place->country}}</td>
                                                 <td>{{$rs->place->city}}</td>
                                                 <td>{{$rs->place->location}}</td>
@@ -57,7 +58,7 @@
                                                     @endif
                                                 </td>
                                                 <td><a href="{{route('user_favcart_update',['id'=>$rs->place->id])}}" on onclick="return confirm('Eminmisiniz')"><img src="{{asset('assets/admin/images/file-icons/yeni')}}/edit.png" width="50"></a> </td>
-                                                <td><a href="{{route('user_favcart_delete',['id'=>$rs->place->id])}}" on onclick="return confirm('Eminmisiniz')"> <img src="{{asset('assets/admin/images/file-icons/yeni')}}/delete.png" width="50"></a> </td>
+                                                <td><a href="{{route('user_favcart_delete',['id'=>$rs->id])}}" on onclick="return confirm('Eminmisiniz')"> <img src="{{asset('assets/admin/images/file-icons/yeni')}}/delete.png" width="50"></a> </td>
                                             </tr>
                                         @endforeach
                                         </tbody>
