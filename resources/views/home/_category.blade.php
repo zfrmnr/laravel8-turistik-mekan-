@@ -49,12 +49,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('myreviews')}}"><i class="fa fa-child"></i>Myreviews</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa fa-tshirt"></i>Men & Women Clothes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa fa-mobile-alt"></i>Gadgets & Accessories</a>
-                        </li>
+
                         @auth
                         @php
                             $userRoles = Auth::user()->roles->pluck('name');
@@ -65,6 +60,12 @@
                         </li>
                             @endif
                         @endauth
+                        <li class="nav-item">
+                            <a class="nav-link" ></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" ></a>
+                        </li>
                     </ul>
                 </nav>
             </div>

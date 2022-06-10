@@ -80,16 +80,7 @@
 
 
                                 </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Status</label>
-                                    <div class="col-sm-9">
-                                        <select class="form-control" name="status">
-                                            <option>false</option>
-                                            <option>true</option>
 
-                                        </select>
-                                    </div>
-                                </div>
 
                                 <button type="submit" class="btn btn-primary mr-2">Add Place</button>
 

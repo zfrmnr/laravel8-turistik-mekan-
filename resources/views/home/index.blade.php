@@ -63,13 +63,18 @@
                                 <img src="{{Storage::url($rs->image)}}" height="300">
                             </a>
                             <div class="product-action">
-                                <a href="{{route('user_favcart_add',['id'=>$rs->id])}}"><i class="fa fa-heart"></i></a>
+                                <form action="{{route('user_favcart_add',['id'=>$rs->id])}}" method="post">
+                                    @csrf
+                                    <div class="action">
+                                        <button class="btn" type="submit"><i class="fa fa fa-heart"></i>Add to Fav</button>
+                                    </div>
+                                </form>
                                 <a href="{{route('place',['id'=>$rs->id])}}"><i class="fa fa-search"></i></a>
                             </div>
                         </div>
                         <div class="product-price">
                             <h3>{{$rs->city}}</h3>
-                            <a class="btn" href=""><i class=""></i>Show Now</a>
+                            <a class="btn" href="{{route('place',['id'=>$rs->id])}}"><i class=""></i>Show Now</a>
                         </div>
                     </div>
                 </div>
@@ -108,13 +113,18 @@
                                 <img src="{{Storage::url($rs->image)}}" height="300">
                             </a>
                             <div class="product-action" >
-                                <a href="{{route('user_favcart_add',['id'=>$rs->id])}}"><i class="fa fa-heart"></i></a>
+                                <form action="{{route('user_favcart_add',['id'=>$rs->id])}}" method="post">
+                                    @csrf
+                                    <div class="action">
+                                        <button class="btn" type="submit"><i class="fa fa fa-heart"></i>Add to Fav</button>
+                                    </div>
+                                </form>
                                 <a href="{{route('place',['id'=>$rs->id])}}"><i class="fa fa-search"></i></a>
                             </div>
                         </div>
                         <div class="product-price">
                             <h3>{{$rs->city}}</h3>
-                            <a class="btn" href=""><i class=""></i>Show Now</a>
+                            <a class="btn" href="{{route('place',['id'=>$rs->id])}}"><i class=""></i>Show Now</a>
                         </div>
                     </div>
                 </div>

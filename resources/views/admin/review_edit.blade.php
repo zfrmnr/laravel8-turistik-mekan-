@@ -35,7 +35,7 @@
                                         <th>id</th><td>{{$data->id}}</td>
                                     </tr>
                                     <tr>
-                                        <th>Name</th><td>{{$data->user->name}}</td>
+                                        <th>Name</th><td>{{$data->name}}</td>
                                     </tr>
                                     <tr>
                                         <th>Place</th><td>{{$data->place->title}}</td>

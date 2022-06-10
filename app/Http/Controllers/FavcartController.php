@@ -40,8 +40,8 @@ class FavcartController extends Controller
     public function store(Request $request,$id)
     {
         $check=Favcart::find($id);
-        if($check==null){
-            return redirect()->back()->with('success','Place already Added to Fav Successfuly');
+        if($check!=null){
+            return redirect()->back()->with('success','Place already Added to Fav ');
 
         }
         else{

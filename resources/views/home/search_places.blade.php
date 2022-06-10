@@ -23,49 +23,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="row">
-                        <div class="col-md-12">
-                            <div class="product-view-top">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="product-search">
-                                            <input type="email" value="Search">
-                                            <button><i class="fa fa-search"></i></button>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="product-short">
-                                            <div class="dropdown">
-                                                <div class="dropdown-toggle" data-toggle="dropdown">Product short by</div>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a href="#" class="dropdown-item">Newest</a>
-                                                    <a href="#" class="dropdown-item">Popular</a>
-                                                    <a href="#" class="dropdown-item">Most sale</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="product-price-range">
-                                            <div class="dropdown">
-                                                <div class="dropdown-toggle" data-toggle="dropdown">Product price range</div>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a href="#" class="dropdown-item">$0 to $50</a>
-                                                    <a href="#" class="dropdown-item">$51 to $100</a>
-                                                    <a href="#" class="dropdown-item">$101 to $150</a>
-                                                    <a href="#" class="dropdown-item">$151 to $200</a>
-                                                    <a href="#" class="dropdown-item">$201 to $250</a>
-                                                    <a href="#" class="dropdown-item">$251 to $300</a>
-                                                    <a href="#" class="dropdown-item">$301 to $350</a>
-                                                    <a href="#" class="dropdown-item">$351 to $400</a>
-                                                    <a href="#" class="dropdown-item">$401 to $450</a>
-                                                    <a href="#" class="dropdown-item">$451 to $500</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                         @foreach($datalist as $rs)
                         <div class="col-lg-4">
                             <div class="product-item">

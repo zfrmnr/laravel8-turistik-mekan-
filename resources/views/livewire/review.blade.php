@@ -10,11 +10,11 @@
             <h4>Give your Review:</h4>
             @error('rate')<span class="text-danger">{{$message}}</span>@enderror
             <div  class="ratting">
-                <input  type="radio" id="star1" wire:model="rate" value="1"/><i class="far fa-star"></i>
-                <input  type="radio"  id="star2" wire:model="rate" value="2"/><i class="far fa-star"></i>
-                <input type="radio" id="star3" wire:model="rate" value="3"/><i class="far fa-star"></i>
-                <input  type="radio" id="star4" wire:model="rate" value="4"/><i class="far fa-star"></i>
-                <input   type="radio" id="star5" wire:model="rate" value="5"/><i class="far fa-star"></i>
+                <input  type="radio" id="star1" wire:model="rate" value="1"><i class="far fa-star"></i></input>
+                <input  type="radio" id="star2" wire:model="rate" value="2"><i class="far fa-star"></i></input>
+                <input  type="radio" id="star3" wire:model="rate" value="3"><i class="far fa-star"></i></input>
+                <input  type="radio" id="star4" wire:model="rate" value="4"><i class="far fa-star"></i></input>
+                <input  type="radio" id="star5" wire:model="rate" value="5"><i class="far fa-star"></i></input>
                 </div>
 
                 <div class="col-sm-7">

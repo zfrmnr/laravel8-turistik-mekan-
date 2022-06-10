@@ -45,7 +45,7 @@
                             @endphp
                             <div class="col-md-5">
                                 <div class="product-content">
-                                    <div class="title"><h2>{{$rs->title}}</h2></div>
+                                    <div class="title"><h2>{{$data->title}}</h2></div>
                                     <div class="ratting">
                                         <i class="fa fa-star" @if($avgrev<1) -o empty @endif></i>
                                         <i class="fa fa-star" @if($avgrev<2) -o empty @endif></i>

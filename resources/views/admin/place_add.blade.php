@@ -89,7 +89,7 @@
                                     </select>
                                 </div>
                         </div>
-                                
+
                                 <button type="submit" class="btn btn-primary mr-2">Add Place</button>
 
                         </form>
